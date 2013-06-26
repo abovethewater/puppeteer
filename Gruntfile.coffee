@@ -76,6 +76,13 @@ module.exports = (grunt) ->
 						src: ['require.js']
 						dest: './production/'
 				]
+			productionTemplates:
+				files: [
+					expand: true
+					cwd: './src/app/modules'
+					src: ['**/*.html']
+					dest: './production/app/modules'
+				]
 
 		smushit:
 			production:
@@ -187,7 +194,7 @@ module.exports = (grunt) ->
 		'less:production'
 		'copy:production'
 		'copy:productionRequire'
-		'copy:templates'
+		'copy:productionTemplates'
 		'requirejs'
 		'smushit:production'
 	]
